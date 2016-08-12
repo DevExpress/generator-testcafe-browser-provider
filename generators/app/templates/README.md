@@ -6,7 +6,7 @@ This is the **<%= providerName %>** browser provider plugin for [TestCafe](http:
 ## Install
 
 ```
-npm install -g testcafe-browser-provider-<%= providerName %>
+npm install testcafe-browser-provider-<%= providerName %>
 ```
 
 ## Usage
@@ -15,16 +15,12 @@ npm install -g testcafe-browser-provider-<%= providerName %>
 You can figure out available browser aliases by running
 ```
 testcafe -b <%= providerName %>
-    "<%= providerName %>:browser1"
-    "<%= providerName %>:browser2"
-    "<%= providerName %>:browser3"
-    ...
 ```
 <% } %>
 When you run tests from the command line, use the <% if (isMultiBrowser) {%>alias<% } else { %>provider name<% } %> when specifying browsers:
 
 ```
-testcafe chrome,<%= providerName %><%if (isMultiBrowser) { %>:browser1<% } %> 'path/to/test/file.js'
+testcafe <%= providerName %><%if (isMultiBrowser) { %>:browser1<% } %> 'path/to/test/file.js'
 ```
 
 
@@ -34,7 +30,7 @@ When you use API, pass the <% if (isMultiBrowser) {%>alias<% } else { %>provider
 testCafe
     .createRunner()
     .src('path/to/test/file.js')
-    .browsers('chrome', '<%= providerName %><%if (isMultiBrowser) { %>:browser1<% } %>')
+    .browsers('<%= providerName %><%if (isMultiBrowser) { %>:browser1<% } %>')
     .run();
 ```
 

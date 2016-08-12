@@ -4,8 +4,8 @@ var babel   = require('gulp-babel');
 var mocha   = require('gulp-mocha');
 var del     = require('del');
 
-gulp.task('clean', function (cb) {
-    del('lib', cb);
+gulp.task('clean', function () {
+    return del('lib');
 });
 
 gulp.task('lint', function () {
