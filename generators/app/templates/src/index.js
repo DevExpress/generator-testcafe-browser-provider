@@ -5,7 +5,7 @@ export default {
 
     // Required - must be implemented
     // Browser control
-    async openBrowser (/* id, browserInfo, startPage */) {
+    async openBrowser (/* id, browserName, startPage */) {
         throw new Error('Not implemented!');
     },
 
@@ -14,7 +14,7 @@ export default {
     },
 
 
-    // Optional - remove methods you do not want to implement
+    // Optional - implement methods you need, remove other methods
     // Initialization
     async init () {
         return;
@@ -40,7 +40,7 @@ export default {
     },
     <% } %>
 
-    // Extra functions
+    // Extra methods
     async resizeWindow (/* id, pageInfo, width, height */) {
         this.reportWarning('The screenshot functionality is not supported by the "<%= providerName %>" browser provider.');
     },

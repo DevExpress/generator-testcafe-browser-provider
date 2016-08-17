@@ -12,7 +12,7 @@ npm install testcafe-browser-provider-<%= providerName %>
 ## Usage
 
 <% if (isMultiBrowser) {%>
-You can figure out available browser aliases by running
+You can determine the available browser aliases by running
 ```
 testcafe -b <%= providerName %>
 ```
