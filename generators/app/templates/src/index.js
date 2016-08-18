@@ -5,11 +5,11 @@ export default {
 
     // Required - must be implemented
     // Browser control
-    async openBrowser (/* id, browserName, startPage */) {
+    async openBrowser (/* id, pageUrl<%if (isMultiBrowser) {%>, browserName<% } %> */) {
         throw new Error('Not implemented!');
     },
 
-    async closeBrowser (/* id, pageInfo */) {
+    async closeBrowser (/* id */) {
         throw new Error('Not implemented!');
     },
 
@@ -33,19 +33,14 @@ export default {
     async isValidBrowserName (/* browserName */) {
         return true;
     },
-    <% } else { %>
-    // Browser names handling
-    async isValidBrowserName (/* browserName */) {
-        return true;
-    },
     <% } %>
 
     // Extra methods
-    async resizeWindow (/* id, pageInfo, width, height */) {
+    async resizeWindow (/* id, width, height, currentWidth, currentHeight */) {
         this.reportWarning('The screenshot functionality is not supported by the "<%= providerName %>" browser provider.');
     },
 
-    async takeScreenshot (/* id, pageInfo, screenshotPath */) {
+    async takeScreenshot (/* id, screenshotPath, pageWidth, pageHeight */) {
         this.reportWarning('The window resize functionality is not supported by the "<%= providerName %>" browser provider.');
     }
 };
