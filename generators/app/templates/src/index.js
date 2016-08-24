@@ -37,10 +37,10 @@ export default {
 
     // Extra methods
     async resizeWindow (/* id, width, height, currentWidth, currentHeight */) {
-        this.reportWarning('The screenshot functionality is not supported by the "<%= providerName %>" browser provider.');
+        this.reportWarning('The window resize functionality is not supported by the "<%= providerName %>" browser provider.');
     },
 
     async takeScreenshot (/* id, screenshotPath, pageWidth, pageHeight */) {
-        this.reportWarning('The window resize functionality is not supported by the "<%= providerName %>" browser provider.');
+        this.reportWarning('The screenshot functionality is not supported by the "<%= providerName %>" browser provider.');
     }
 };
