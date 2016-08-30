@@ -8,4 +8,4 @@ in a special way, TestCafe can handle this. All you need is a custom browser pro
 
 This Yeoman generator scaffolds out such a plugin, so that you will need to write only a few lines of code.
 
-For more information, see _Custom Browser Provider Plugin link here_
+For more information, see [Custom Browser Provider Plugin](https://devexpress.github.io/testcafe/documentation/extending-testcafe/custom-browser-provider-plugin/).
