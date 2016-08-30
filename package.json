@@ -1,6 +1,6 @@
 {
   "name": "generator-testcafe-browser-provider",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Scaffold out a TestCafe browser provider",
   "homepage": "https://github.com/DevExpress/generator-testcafe-browser-provider",
   "author": {
