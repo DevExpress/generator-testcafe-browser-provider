@@ -1,0 +1,42 @@
+{
+  "name": "generator-testcafe-browser-provider",
+  "version": "0.0.1",
+  "description": "Scaffold out a TestCafe browser provider",
+  "homepage": "https://github.com/DevExpress/generator-testcafe-browser-provider",
+  "author": {
+    "name": "Developer Express Inc.",
+    "url":  "https://devexpress.com"
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
+  "keywords": [
+    "yeoman-generator",
+    "testcafe",
+    "browser provider",
+    "plugin",
+    "report"
+  ],
+  "repository": "https://github.com/DevExpress/generator-testcafe-browser-provider.git",
+  "scripts": {
+    "test": "gulp test",
+    "publish-please": "publish-please",
+    "prepublish": "publish-please guard"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "normalize-url": "^1.4.0",
+    "underscore.string": "^3.2.2",
+    "yeoman-generator": "^0.21.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^1.1.1",
+    "gulp-mocha": "^2.2.0",
+    "pify": "^2.3.0",
+    "pinkie-promise": "^2.0.0",
+    "publish-please": "^2.1.4",
+    "yeoman-assert": "^2.1.0"
+  }
+}
