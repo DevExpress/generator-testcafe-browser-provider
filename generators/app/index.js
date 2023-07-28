@@ -1,18 +1,15 @@
 'use strict';
-var yeoman       = require('yeoman-generator');
-var slugify      = require('underscore.string').slugify;
-var normalizeUrl = require('normalize-url');
+const Generator    = require('yeoman-generator');
+const slugify      = require('underscore.string').slugify;
+const normalizeUrl = require('normalize-url');
 
 function filterProjectName (name) {
     return slugify(name.replace(/^testcafe(-|\s)browser(-|\s)provider(-|\s)/i, ''));
 }
 
-module.exports = yeoman.generators.Base.extend({
-    prompting: function () {
-        var done = this.async();
-        var gen  = this;
-
-        var prompts = [
+module.exports = class extends Generator {
+    prompting () {
+        const prompts = [
             {
                 name:    'providerName',
                 message: 'How do you want to name your browser provider?',
@@ -63,17 +60,15 @@ module.exports = yeoman.generators.Base.extend({
             }
         ];
 
-        this.prompt(prompts, function (props) {
-            gen.props = props;
+        return this
+            .prompt(prompts)
+            .then(props => {
+                this.props = props;
+            });
+    }
 
-            done();
-        });
-    },
-
-    writing: function () {
-        var gen = this;
-
-        var tmplProps = {
+    writing () {
+        const tmplProps = {
             author:         this.user.git.name(),
             email:          this.user.git.email(),
             website:        this.props.website,
@@ -83,7 +78,7 @@ module.exports = yeoman.generators.Base.extend({
             homepage:       this.props.homepage
         };
 
-        var unescaped = {
+        const unescaped = {
             '_.editorconfig':  '.editorconfig',
             '_.eslintrc':      '.eslintrc',
             '_.travis.yml':    '.travis.yml',
@@ -95,12 +90,8 @@ module.exports = yeoman.generators.Base.extend({
 
         this.fs.copyTpl(this.templatePath() + '/**/*', this.destinationPath(), tmplProps);
 
-        Object.keys(unescaped).forEach(function (escaped) {
-            gen.fs.move(gen.destinationPath(escaped), gen.destinationPath(unescaped[escaped]));
+        Object.keys(unescaped).forEach(escaped => {
+            this.fs.move(this.destinationPath(escaped), this.destinationPath(unescaped[escaped]));
         });
-    },
-
-    install: function () {
-        this.installDependencies({ bower: false });
     }
-});
+};
