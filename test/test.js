@@ -1,6 +1,6 @@
 'use strict';
 var path    = require('path');
-var helpers = require('yeoman-generator').test;
+var helpers = require('yeoman-test');
 var assert  = require('yeoman-assert');
 var Promise = require('pinkie-promise');
 var pify    = require('pify');
@@ -15,6 +15,8 @@ beforeEach(function () {
 });
 
 it('Should generate expected files', function () {
+    this.timeout(60000);
+
     helpers.mockPrompt(generator, {
         providerName:   'test-provider',
         githubUsername: 'test-user',
@@ -22,7 +24,7 @@ it('Should generate expected files', function () {
         website:        'test.com'
     });
 
-    return pify(generator.run.bind(generator), Promise)().then(function () {
+    return generator.run().then(function () {
         assert.file([
             '.editorconfig',
             '.eslintrc',
