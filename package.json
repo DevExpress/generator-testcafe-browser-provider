@@ -5,7 +5,7 @@
   "homepage": "https://github.com/DevExpress/generator-testcafe-browser-provider",
   "author": {
     "name": "Developer Express Inc.",
-    "url":  "https://devexpress.com"
+    "url": "https://devexpress.com"
   },
   "files": [
     "generators"
@@ -38,6 +38,7 @@
     "pinkie-promise": "^2.0.0",
     "publish-please": "^5.5.2",
     "yeoman-assert": "^3.1.1",
+    "yeoman-environment": "^3.19.3",
     "yeoman-test": "^5.1.0"
   }
 }
