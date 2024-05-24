@@ -2,7 +2,7 @@
 
 var gulp   = require('gulp');
 var eslint = require('gulp-eslint');
-var mocha  = require('gulp-mocha');
+var mocha  = require('gulp-mocha-simple');
 
 gulp.task('lint', function () {
     return gulp
